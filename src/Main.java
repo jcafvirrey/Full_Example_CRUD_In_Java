@@ -1,6 +1,8 @@
 import model.Course;
 import repository.CourseRepository;
+import repository.impl.InFileCourseRepository;
 import repository.impl.InMemoryCourseRepository;
+import repository.impl.InOracleBBDDRepository;
 import service.CourseService;
 
 import java.util.List;
@@ -12,7 +14,7 @@ public class Main {
         // El repositorio se declara como la INTERFAZ, aunque el objeto real
         // sea un InMemoryCourseRepository. Esto es POLIMORFISMO aplicado
         // a la propia arquitectura del programa.
-        CourseRepository repository = new InMemoryCourseRepository();
+        CourseRepository repository = new InOracleBBDDRepository();
         CourseService service = new CourseService(repository);
 
         // 1) Crear 3 cursos
